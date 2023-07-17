@@ -1,0 +1,15 @@
+rails:
+  type: backend
+  migration: [".", "/root/.profile", "&&", "bundle", "exec", "rails", "server:migrate"]
+  dev: [".", "/root/.profile", "&&", "bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+  prod: [".", "/root/.profile", "&&", "bundle", "exec", "rails", "server", "-e",  "production", "-b", "0.0.0.0"]
+
+  system:
+    memory: 2G
+    cpu: 2
+
+  resources:
+  - name: db1
+    engine: postgres
+    version: 14
+    type: database
